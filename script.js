@@ -1,9 +1,24 @@
+
 // Navegação entre seções
-function showSection(id) {
-  document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
-  document.getElementById(id).classList.remove('hidden');
-  window.scrollTo(0,0);
+
+function showSection(sectionId) {
+    // Esconde todas as seções
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.classList.add('hidden');
+    });
+    
+    // Mostra apenas a seção que foi clicada
+    const activeSection = document.getElementById(sectionId);
+    if (activeSection) {
+        activeSection.classList.remove('hidden');
+    }
 }
+
+// Garante que o site comece mostrando apenas a seção 'inicio' ao carregar
+document.addEventListener("DOMContentLoaded", () => {
+    showSection('inicio');
+});
 
 // Dados dos pontos de coleta
 const pontosColeta = [
